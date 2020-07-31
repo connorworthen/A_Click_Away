@@ -1,0 +1,20 @@
+<div id="formContent">
+  <h3>Create Your Account</h3>
+  <%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :email %>
+  <%= f.email_field(:email) %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field(:password) %><br>
+
+  <%= f.submit "Create Account" %>
+
+  <% end %>
+
+</div>

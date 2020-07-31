@@ -1,0 +1,16 @@
+<div id="formContent">
+  <h4>Log In</h4>
+
+  <%= form_with do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field(:email) %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field(:password) %><br>
+
+  <%= f.submit "Log In" %>
+
+  <% end %>
+  <%= link_to 'Log In with Google', '/auth/google_oauth2' %>
+</div>
