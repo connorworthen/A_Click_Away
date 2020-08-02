@@ -1,0 +1,11 @@
+<div>
+  <%= render 'search' %>
+</div>
+
+<div>
+  <% @manufacturers.each do |m| %>
+  <ul>
+    <li><%= link_to m.name, manufacturer_path(m) %></li>
+  </ul>
+  <% end %>
+</div>
