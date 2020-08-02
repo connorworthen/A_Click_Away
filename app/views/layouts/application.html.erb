@@ -1,15 +1,37 @@
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
+
   <head>
     <title>AClickAway</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar-nav" style="background-color: #BC8AEE;">
+      <div class="navbar-text">
+        <p class="navbar-brand" style="text-color: white"><b><a href="/">GLEAM</a></b></p>
+        <div class="navbar-text">
+          <ul>
+            <%= link_to 'Manufacturers', manufacturers_path %>
+            <% if logged_in? %>
+            | <%= link_to "#{current_user.name.split[0]}'s page", user_path(current_user) %> |
+            <a href="/products/new">Add Product</a> |
+            <%= link_to "Log Out", '/logout', method: :post %>
+            <% end %>
+          </ul>
+        </div>
+        </p>
+      </div>
+    </div>
+    <div id="container">
+      <%= yield %>
+    </div>
   </body>
-</html>
+  <footer class="footer">
+    <p><small> &copy; 2020 <strong>GLEAM</strong><%if logged_in? %> | <a href="/logout">Log Out</a><% end %></small></p>
+  </footer>
+
+  </html>

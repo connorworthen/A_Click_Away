@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   end 
   resources :users, only: [:new, :create, :show]
 
-  get '/' to 'main#home'
-  get '/signup', to: 'users#new', as: "new_user"
-  post '/signup', to: 'users#create', as: 'users_path'
+  # get '/' to: 'main#home'
+  # get '/signup', to: 'users#new', as: "new_user"
+  # post '/signup', to: 'users#create', as: 'users_path'
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

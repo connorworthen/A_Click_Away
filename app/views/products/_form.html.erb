@@ -1,0 +1,13 @@
+<%= f.label :name %>
+<%= f.text_field :name, list: "products_autcomplete" %><br>
+<datalist id="products_autocomplete">
+  <% Product.all.each do |product| %>
+  <option value="<%= product.name %>">
+    <% end %>
+</datalist>
+
+<%= f.label :price %>
+<%= f.number_field :price, value: @product.price ? '%.2f' % @product.price : nil, min: 0, step: 0.01 %><br>
+
+<%= f.label :category_id %>
+<%= f.collection_select :category_id, Category.all.sort_by{|c| c.name}, :id, :name, prompt: true  %><br>

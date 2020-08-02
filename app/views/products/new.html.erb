@@ -1,0 +1,22 @@
+  <%= render partial: 'layouts/errors', locals: {object: @product } %>
+
+  <h3>Add a New Product</h3>
+
+  <%= form_with(model: @product, local: true) do |f| %>
+  <%= render 'form', {f: f} %>
+
+  <% if @manufacturer.nil? %>
+  <%= f.label :manufacturer_id %>
+  <%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %>
+  <h4>Or Create a New Manufacturer</h4>
+  <%= f.fields_for :manufacturer do |m_field| %>
+  <%= m_field.label :name %>
+  <%= m_field.text_field :name %><br>
+  <% end %>
+  <% else %>
+  <%= f.hidden_field :manufacturer_id %>
+  <% end %>
+
+
+  <%= f.submit "Create" %>
+  <% end %>

@@ -1,0 +1,5 @@
+<div>
+  <% @manufacturer.each do |m|%>
+  <%= link_to m.name, manufacturer_path(m)%><br>
+  <% end %>
+</div>
