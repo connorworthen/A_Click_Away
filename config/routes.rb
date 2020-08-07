@@ -10,11 +10,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :show, :edit, :update]
   end
 
-  # resources :users, only: [:new, :create, :show]
-  
-  get '/users/new', to: 'users#new', as: "new_user"
-  post '/users/new', to: 'users#create', as: 'users_path'
-  get '/main', to: 'main#homepage'
+  resources :users, only: [:new, :create, :show]
+
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

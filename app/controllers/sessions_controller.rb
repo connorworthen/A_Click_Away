@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else 
-      redirect_to '/login'
-    end 
+      redirect_to root_path
+    end
   end 
     
   def destroy 
