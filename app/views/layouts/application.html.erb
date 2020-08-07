@@ -10,20 +10,12 @@
   </head>
 
   <body>
+    <% if current_user %>
+    <div> <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete %> | <%= link_to "Create a new product", new_product_path %> | <%= link_to 'Manufacturers', manufacturers_path %> | </div>
+    <% else %>
+    <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %> </div>
+    <% end %>
 
-    <div class="navbar-text">
-      <p class="navbar-brand" style="text-color: white"><b><a href="/">A Click Away</a></b></p>
-      <div class="navbar-text">
-        <ul>
-          <%= link_to 'Manufacturers', manufacturers_path %>
-          <% if logged_in? %>
-          <a href="/products/new">Add Product</a> |
-          <%= link_to "Log Out", '/logout', method: :post %>
-          <% end %>
-        </ul>
-      </div>
-      </p>
-    </div>
 
     <div id="container">
       <%= yield %>
