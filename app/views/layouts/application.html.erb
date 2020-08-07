@@ -10,22 +10,22 @@
   </head>
 
   <body>
-    <div class="navbar-nav" style="background-color: #BC8AEE;">
-      <div class="navbar-text">
-        <p class="navbar-brand" style="text-color: white"><b><a href="/">A Click Away</a></b></p>
-        <div class="navbar-text">
-          <ul>
-            <%= link_to 'Manufacturers', manufacturers_path %>
-            <% if logged_in? %>
 
-            <a href="/products/new">Add Product</a> |
-            <%= link_to "Log Out", '/logout', method: :post %>
-            <% end %>
-          </ul>
-        </div>
-        </p>
+    <div class="navbar-text">
+      <p class="navbar-brand" style="text-color: white"><b><a href="/">A Click Away</a></b></p>
+      <div class="navbar-text">
+        <ul>
+          <%= link_to 'Manufacturers', manufacturers_path %>
+          <% if logged_in? %>
+
+          <a href="/products/new">Add Product</a> |
+          <%= link_to "Log Out", '/logout', method: :post %>
+          <% end %>
+        </ul>
       </div>
+      </p>
     </div>
+
     <div id="container">
       <%= yield %>
     </div>
