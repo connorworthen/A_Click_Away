@@ -17,7 +17,6 @@
         <ul>
           <%= link_to 'Manufacturers', manufacturers_path %>
           <% if logged_in? %>
-
           <a href="/products/new">Add Product</a> |
           <%= link_to "Log Out", '/logout', method: :post %>
           <% end %>
