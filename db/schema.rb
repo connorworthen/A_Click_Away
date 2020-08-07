@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_07_31_023617) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
     t.integer "established"
@@ -40,8 +34,6 @@ ActiveRecord::Schema.define(version: 2020_07_31_023617) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id", null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "products_users", id: false, force: :cascade do |t|
@@ -72,7 +64,6 @@ ActiveRecord::Schema.define(version: 2020_07_31_023617) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "products", "categories"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
 end
