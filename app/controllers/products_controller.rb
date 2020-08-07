@@ -7,15 +7,13 @@ class ProductsController < ApplicationController
         else 
             @product = Product.new
             @product.build_manufacturer 
-            @product.category.try(:id)
-
         end 
     end 
     
     def create
         @product = Product.create(product_params)
         if @product.save
-            session[:user_id] = @user.id
+            @product.update(user_ids: current_user.id)
             redirect_to product_path(@product)
         else
             render :new
