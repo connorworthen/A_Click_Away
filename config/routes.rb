@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   resources :manufacturers, only: [:index, :search, :show] do 
     resources :products, only: [:new, :create]
   end 
+
   resources :products, only: [:new, :create, :show, :edit, :update] do 
     resources :reviews, only: [:new, :create, :show, :edit, :update]
-  end 
-  resources :users, only: [:new, :create, :show]
+  end
 
-  # get '/' to: 'main#home'
-  # get '/signup', to: 'users#new', as: "new_user"
-  # post '/signup', to: 'users#create', as: 'users_path'
+  # resources :users, only: [:new, :create, :show]
+  
+  get '/users/new', to: 'users#new', :as => :new_user
+  post '/users/new', to: 'users#create', :as => :user_path
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

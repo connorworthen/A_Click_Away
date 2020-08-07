@@ -2,11 +2,7 @@ class UsersController < ApplicationController
   before_action :require_log_in, only: [:show]
 
   def new
-    if logged_in?
-      redirect_to user_path(current_user)
-    else
-      @user = User.new
-    end
+    @user = User.new
   end 
 
   def create

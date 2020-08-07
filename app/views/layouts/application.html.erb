@@ -12,12 +12,12 @@
   <body>
     <div class="navbar-nav" style="background-color: #BC8AEE;">
       <div class="navbar-text">
-        <p class="navbar-brand" style="text-color: white"><b><a href="/">GLEAM</a></b></p>
+        <p class="navbar-brand" style="text-color: white"><b><a href="/">A Click Away</a></b></p>
         <div class="navbar-text">
           <ul>
             <%= link_to 'Manufacturers', manufacturers_path %>
             <% if logged_in? %>
-            | <%= link_to "#{current_user.name.split[0]}'s page", user_path(current_user) %> |
+
             <a href="/products/new">Add Product</a> |
             <%= link_to "Log Out", '/logout', method: :post %>
             <% end %>
@@ -31,7 +31,7 @@
     </div>
   </body>
   <footer class="footer">
-    <p><small> &copy; 2020 <strong>GLEAM</strong><%if logged_in? %> | <a href="/logout">Log Out</a><% end %></small></p>
+    <p><small> &copy; 2020 <strong>A Click Away</strong><%if logged_in? %> | <a href="/logout">Log Out</a><% end %></small></p>
   </footer>
 
   </html>
