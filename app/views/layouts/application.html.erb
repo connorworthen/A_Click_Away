@@ -11,15 +11,17 @@
 
   <body>
     <% if current_user %>
-    <div> <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete %> | <%= link_to "Create a new product", new_product_path %> | <%= link_to 'Manufacturers', manufacturers_path %> | </div>
+    <%= "Logged in as #{current_user.email}" %>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+    <li><%= link_to "Create a new product", new_product_path %></li>
+    <li><%= link_to 'Manufacturers', manufacturers_path %></li>
     <% else %>
     <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %> </div>
     <% end %>
 
+    <%= yield %>
 
-    <div id="container">
-      <%= yield %>
-    </div>
   </body>
   <footer class="footer">
     <p><small> &copy; 2020 <strong>A Click Away</strong><%if logged_in? %> | <a href="/logout">Log Out</a><% end %></small></p>
