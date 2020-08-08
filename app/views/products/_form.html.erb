@@ -8,10 +8,3 @@
 
 <%= f.label :price %>
 <%= f.number_field :price, value: @product.price ? '%.2f' % @product.price : nil, min: 0, step: 0.99 %><br>
-
-
-<h1>Products</h1>
-
-<%= label_tag(:search, "Test Search:") %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag("Search", :name => nil)%>

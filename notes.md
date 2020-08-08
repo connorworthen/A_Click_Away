@@ -7,3 +7,5 @@ Priority List:
 5. Application layout should show users products or past reviews.
 6. User interface update design and function
 7. Check for errors, make sure all routes work, all criteria are met, & DRY all code
+
+when creating product user should be able to assign manufacturer if there is no manufacturer then link to manufacturer which should display name of company, bio, products => products_params, year established
