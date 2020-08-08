@@ -1,7 +1,7 @@
 <h1>Products</h1>
 
 <%= form_tag product_index_path, :method => "get" do %>
-<%= label_tag(:search "Test Search:") %>
-<%= <%= text_field_tag :search, params[:search] %>
+<%= label_tag(:search, "Test Search:") %>
+<%= text_field_tag :search, params[:search] %>
 <%= submit_tag("Search", :name => nil)%>
 <% end %>

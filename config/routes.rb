@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :show, :edit, :update]
   end
 
+  resources :products, only: [:index, :search, :show] do
+    resources :manufacturers, only: [:new, :create]
+  end
+
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#login'
@@ -27,8 +31,6 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/following', to: 'follows#following', as: 'user_following'
   get '/users/:user_id/followers', to:  'follows#followers', as: 'user_follower'
-
-  get '/products/index', to: 'products#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
