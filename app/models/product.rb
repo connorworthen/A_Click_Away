@@ -19,9 +19,9 @@ class Product < ApplicationRecord
 
   def self.search(search)
     if search
-      manufacturer_type = Manufacturer.find_by(name: search)
-      if manufacturer_type
-        self.where(manufacturer_id: manufacturer_type)
+      product_type = Product.find_by(name: search)
+      if product_type
+        self.where(product_id: product_type)
       else
         @products = Product.all
       end

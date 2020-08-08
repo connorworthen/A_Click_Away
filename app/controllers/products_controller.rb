@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
         @products = Product.search(params[:search])
     end
 
+    def show
+        @product = Product.find_by(id: params[:id])
+    end
+
     def new
         if params[:manufacturer_id] && @manufacturer = Manufacturer.find_by(id: params[:manufacturer_id])
             @product = @manufacturer.products.build 
@@ -22,10 +26,6 @@ class ProductsController < ApplicationController
         else
             render :new
         end
-    end 
-
-    def show
-       product_helper
     end 
 
     def edit

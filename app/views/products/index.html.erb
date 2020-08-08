@@ -5,3 +5,4 @@
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag("Search", :name => nil)%>
 <% end %>
+<%= form_with(url: "/products", method: :get, local: true ) do |f| %>
