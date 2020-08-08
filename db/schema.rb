@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_211943) do
+ActiveRecord::Schema.define(version: 2020_08_08_222136) do
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
     t.integer "established"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bio"
   end
 
   create_table "members", force: :cascade do |t|
