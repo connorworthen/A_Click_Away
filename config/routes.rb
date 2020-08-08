@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/following', to: 'follows#following', as: 'user_following'
   get '/users/:user_id/followers', to:  'follows#followers', as: 'user_follower'
 
+  get '/products/index', to: 'products#index'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

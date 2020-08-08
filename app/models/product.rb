@@ -17,4 +17,17 @@ class Product < ApplicationRecord
     end 
   end 
 
+  def self.search(search)
+    if search
+      manufacturer_type = Manufacturer.find_by(name: search)
+      if manufacturer_type
+        self.where(manufacturer_id: manufacturer_type)
+      else
+        @products = Product.all
+      end
+    else
+      @products = Product.all
+    end
+  end
+
 end

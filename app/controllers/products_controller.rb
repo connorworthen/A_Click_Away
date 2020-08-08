@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
     before_action :require_log_in, only: [:new, :create, :edit, :update]
 
+    def index
+        @products = Product.search(params[:search])
+    end
+
     def new
         if params[:manufacturer_id] && @manufacturer = Manufacturer.find_by(id: params[:manufacturer_id])
             @product = @manufacturer.products.build 
@@ -28,7 +32,7 @@ class ProductsController < ApplicationController
         product_helper
     end 
 
-    def update 
+    def update
         product_helper
         @product.update(product_params)
         if @product.save 
@@ -36,16 +40,18 @@ class ProductsController < ApplicationController
         else 
             render :edit 
         end 
-    end 
+    end
 
     private 
 
     def product_params
-        params.require(:product).permit(:name, :stock, :price, :category, manufacturer_attributes: [:id, :name])
+        params.require(:product).permit(:name, :stock, :price, :category, :search, manufacturer_attributes: [:id, :name])
     end 
 
     def product_helper
         @product = Product.find_by(id: params[:id])
-    end 
+    end
+
+    def prodc
 
 end
