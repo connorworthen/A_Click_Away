@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'main#home'
  
-  resources :manufacturers, only: [:index, :search, :show] do 
+  resources :manufacturers, only: [:index, :search, :show, :new, :create] do 
     resources :products, only: [:new, :create]
   end 
 
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :show, :edit, :update]
   end
 
-  get '/products', to: 'products#index'
 
   resources :users, only: [:new, :create, :show]
 
