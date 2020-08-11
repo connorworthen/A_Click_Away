@@ -10,14 +10,13 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :show, :edit, :update]
   end
 
-
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
 
   get '/logout', to: 'sessions#destroy'
-
+  get '/products', to: 'products#show'
   post '/products/new', to: 'products#create'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
