@@ -5,9 +5,8 @@ class ProductsController < ApplicationController
         @products = Product.search(params[:search])
     end
 
-
     def show
-        @product = Product.find_by(id: params[:id])
+        @product = Product.find_by(params[:id])
     end
 
     def new
@@ -30,14 +29,14 @@ class ProductsController < ApplicationController
     end 
 
     def edit
-        @product = Product.find_by(id: params[:id])
+        product_helper
     end 
 
     def update
         product_helper
         @product.update(product_params)
         if @product.save 
-            redirect_to product_path(@product )
+            redirect_to product_path(@product)
         else 
             render :edit 
         end 
@@ -50,7 +49,7 @@ class ProductsController < ApplicationController
     end 
 
     def product_helper
-        @product = Product.find_by(id: params[:id])
+        @product = Product.find_by(params[:id])
     end
 
 end
