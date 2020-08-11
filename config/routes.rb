@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'main#home'
  
-  resources :manufacturers, only: [:index, :search, :show, :new, :create] do 
+  resources :manufacturers, only: [:show, :search, :new, :create] do 
     resources :products, only: [:new, :create]
   end 
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/products', to: 'products#show'
   post '/products/new', to: 'products#create'
+  get '/manufacturers', to: 'manufacturers#show'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

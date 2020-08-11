@@ -1,19 +1,3 @@
-<%= @manufacturer.name %><br>
-<%= @manufacturer.established %><br>
+<h1>Manufacturer Info</h1>
 
-<%= link_to "Add New #{@manufacturer.name} Product", new_manufacturer_product_path(@manufacturer) %>
-
-<div />
-<% @products.each do |product| %>
-<ul>
-  <li><%= link_to product.name, product_path(product) %> - Rating:
-    <% if !product.reviews.empty? %>
-    <%= product.avg_rating %>
-    <% else %>
-    No Rating
-    <% end %>
-    <br>
-  </li>
-</ul><br>
-<% end %>
-</div
+<li><%= link_to  "Register Manufacturer", new_manufacturer_path %></li>

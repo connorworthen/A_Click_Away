@@ -6,7 +6,7 @@ class ManufacturersController < ApplicationController
 
     def show
         @manufacturer = Manufacturer.find_by(id: params[:id])
-        @products = Product.alphabetize(@manufacturer.id)
+        # @products = Product.alphabetize(@manufacturer.id)
     end
     
     def new
@@ -21,6 +21,15 @@ class ManufacturersController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
     end
 
     private 
