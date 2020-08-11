@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get '/manufacturers', to: 'manufacturers#show'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
+  get '/products/:id', to: 'products#edit'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
