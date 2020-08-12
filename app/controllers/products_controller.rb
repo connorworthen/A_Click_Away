@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     end
 
     def show
-        @product = Product.find_by(params[:id])
+        product_helper
     end
 
     def new
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     private 
 
     def product_params
-        params.require(:product).permit(:name, :stock, :price, :category, :search, manufacturer_attributes: [:id, :name])
+        params.require(:product).permit(:name, :stock, :price, :bio, :search, manufacturer_attributes: [:id, :name])
     end 
 
     def product_helper
