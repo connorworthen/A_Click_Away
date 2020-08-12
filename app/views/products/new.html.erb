@@ -1,16 +1,24 @@
   <%= render partial: 'layouts/errors', locals: {object: @product } %>
 
-  <h3>Add a New Product</h3>
+  <h3>Create New Product</h3>
 
   <%= form_with(model: @product, local: true) do |f| %>
-  <%= render 'form', {f: f} %>
 
-  <% if @manufacturer.nil? %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :price %>
+  <%= f.number_field :price, value: @product.price ? '%.2f' % @product.price : nil, min: 1.00, max: 9999.99%><br><br>
+
+  <%= f.label :stock %>
+  <%= f.number_field :stock, min: 1.00 %><br><br>
+
   <%= f.label :manufacturer_id %>
-  <%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %>
-  <%= f.submit "Create" %>
-  <% end %>
+  <%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %><br><br>
 
-  <h4>To Register your Comapny, Click the Link Below.</h4>
-  <%= link_to 'Register Company', new_manufacturer_path %><br></br>
+  <%= f.submit "Create New Product" %><br><br>
+
+  <h3>To Register a new Manufacturer, Click the Link Below.</h3>
+  <%= link_to 'Register Company', new_manufacturer_path %><br><br>
+
   <% end %>

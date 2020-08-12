@@ -10,12 +10,7 @@ class ProductsController < ApplicationController
     end
 
     def new
-        if params[:manufacturer_id] && @manufacturer = Manufacturer.find_by(id: params[:manufacturer_id])
-            @product = @manufacturer.products.build 
-        else 
-            @product = Product.new
-            @product.build_manufacturer 
-        end 
+        @product = Product.new 
     end 
     
     def create
@@ -35,7 +30,7 @@ class ProductsController < ApplicationController
     def update
         product_helper
         @product.update(product_params)
-        if @product.save 
+        if @product.save
             redirect_to product_path(@product)
         else 
             render :edit 

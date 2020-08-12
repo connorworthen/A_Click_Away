@@ -1,7 +1,6 @@
 <h1>Edit Product</h1>
 
 <%= form_with(model: @product) do |f| %>
-<%= render 'form', f: f %>
 <%= f.label :manufacturer_id %>
 <%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %>
 
