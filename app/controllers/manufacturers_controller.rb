@@ -40,7 +40,7 @@ class ManufacturersController < ApplicationController
     end
 
     def manufacturer_helper
-        @manufacturer = Manufacturer.find(params[:id])
+        @manufacturer = Manufacturer.find_by(params[:id])
     end
 
 end
