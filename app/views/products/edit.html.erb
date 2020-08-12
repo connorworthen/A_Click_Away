@@ -1,11 +1,22 @@
 <h1>Edit Product</h1>
 
-<%= form_with(model: @product) do |f| %>
+<%= form_with(model: @product, local: true) do |f| %>
+
+<%= f.label :name %>:
+<%= f.text_field :name %><br><br>
+
+<%= f.label :price %>
+$<%= f.number_field :price, min: 1.00, max: 9999.99%><br><br>
+
+<%= f.label :stock %>:
+<%= f.number_field :stock, min: 1.00 %><br><br>
+
 <%= f.label :manufacturer_id %>
-<%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %>
+<%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %><br><br>
 
-<br><br>
+<%= f.label :description %>:<br><br>
+<%= f.text_area :description, :cols => 50, :rows => 7 %><br><br>
 
-<%= f.submit "Update" %>
+<%= f.submit "Update Product" %><br><br>
 
 <% end %>

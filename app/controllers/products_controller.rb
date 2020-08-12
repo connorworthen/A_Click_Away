@@ -1,10 +1,6 @@
 class ProductsController < ApplicationController
     before_action :require_log_in, only: [:new, :create, :edit, :update]
 
-    def index
-        @products = Product.search(params[:search])
-    end
-
     def show
         product_helper
     end
