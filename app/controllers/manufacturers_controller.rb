@@ -1,11 +1,7 @@
 class ManufacturersController < ApplicationController
     
-    def index 
-        @manufacturers = Manufacturer.search(params[:search])
-    end
-
     def show
-        @manufacturer = Manufacturer.find_by(id: params[:id])
+        manufacturer_helper
         # @products = Product.alphabetize(@manufacturer.id)
     end
     
@@ -17,25 +13,34 @@ class ManufacturersController < ApplicationController
         @manufacturer = Manufacturer.create(manufacturer_params)
         if @manufacturer.save
             @manufacturer.update(user_ids: current_user.id)
-            redirect_to manufacturer_path(@manufacturer)
+            redirect_to manufacturers_path(@manufacturer)
         else
             render :new
         end
     end
 
     def edit
-    end
+        manufacturer_helper
+    end 
 
     def update
-    end
-
-    def destroy
+        manufacturer_helper
+        @manufacturer.update(manufacturer_params)
+        if @manufacturer.save
+            redirect_to manufacturers_path(@manufacturer)
+        else 
+            render :edit 
+        end 
     end
 
     private 
 
     def manufacturer_params
         params.require(:manufacturer).permit(:name, :bio, :established)
+    end
+
+    def manufacturer_helper
+        @manufacturer = Manufacturer.find(params[:id])
     end
 
 end
