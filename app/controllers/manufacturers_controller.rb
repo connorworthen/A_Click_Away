@@ -1,5 +1,9 @@
 class ManufacturersController < ApplicationController
     
+    def index
+        @manufacturers = Manufacturer.all
+    end
+    
     def show
         manufacturer_helper
         # @products = Product.alphabetize(@manufacturer.id)
@@ -31,6 +35,12 @@ class ManufacturersController < ApplicationController
         else 
             render :edit 
         end 
+    end
+
+    def delete
+        manufacturer_helper
+        @manufacturer.destroy
+        redirect_to root_path
     end
 
     private 
