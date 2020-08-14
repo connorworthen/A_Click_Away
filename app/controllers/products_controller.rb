@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
     before_action :require_log_in, only: [:new, :create, :edit, :update]
 
     def index
-        @products = Product.all
+        # if params[:user_id]
+        #     @user = User.find(params[:user_id])
+        #     @products = @user.products.all
+        # else
+            @products = Product.all
+        # end
     end
 
     def show
