@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
 
     def show
         product_helper
-        # @products = Product.all
     end
 
     def new
@@ -47,7 +46,7 @@ class ProductsController < ApplicationController
     end 
 
     def product_helper
-        @product = Product.find_by(params[:id])
+        @product = Product.find_by(id: params[:id])
     end
 
 end

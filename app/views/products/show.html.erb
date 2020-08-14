@@ -1,4 +1,11 @@
-<h1>Products Show Page</h1>
+<h2>Product Show Page</h2>
 
-<li><%= link_to "Create a new product", new_products_path(@product) %></li>
-<li><%= link_to  "Edit Product", edit_products_path(@product) %></li>
+<td>Name: <%= @product.name %> </td><br><br>
+
+<th>Price: <%= @product.price %> </th><br><br>
+
+<th>Stock: <%= @product.stock %> </th><br><br>
+
+<th>Description: <%= @product.description %> </th><br><br>
+
+<th>Manufacturer: <%= @product.manufacturer.name %> </th>
