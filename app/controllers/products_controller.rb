@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     end 
     
     def create
-        @product = Product.create(params.require(:product).permit(:name, :price, :stock, :description, :manufacturer_id, manufacturer_attributes: [:name]))
+        @product = Product.create(product_params)
         if @product.save
             @product.update(user_ids: current_user.id)
             # redirect_to products_path(@product)
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
     private 
 
     def product_params
-        params.require(:product).permit(:name, :stock, :price, :description, manufacturer_attributes: [:id, :name])
+        params.require(:product).permit(:name, :price, :stock, :description, :manufacturer_id, manufacturer_attributes: [:name])
     end 
 
     def product_helper
