@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
     def show
         product_helper
+        # @products = Product.all
     end
 
     def new
