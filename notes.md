@@ -20,3 +20,8 @@ admin account?
 terms and services?
 welcome message?
 displaying all users products?
+
+product/:id = show page
+products = index page
+product_path(@product) = show page
+products_path = index page
