@@ -1,1 +1,32 @@
-<h1>Test Index</h1>
+<h1>Listing Products</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @products.each do |product| %>
+  <tr>
+    <th>Name</th>
+    <td><%= @product.name %></td>
+    <th>Price</th>
+    <td><%= @product.price %></td>
+    <th>Stock</th>
+    <td><%= @product.stock %></td>
+    <th>Description</th>
+    <td><%= @product.description %></td>
+    <th>Manufacturer</th>
+    <td><%= @product.manufacturer.name %></td>
+    <td><%= link_to 'Show', products_path(@product) %></td>
+    <td><%= link_to 'Edit', edit_products_path(@product) %></td>
+    <td><%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_products_path %>
