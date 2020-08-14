@@ -1,6 +1,6 @@
 Priority List: 1-5 8/14 if more time figure out dilemna between members seeing users feed? amazon?
 
-1. create new manufact., select it when creating a new product and be able to see product and who manufact. it
+1. create new manufact., select it when creating a new product and be able to see product and who manufact.
 2. be able to edit/destroy manufact. & product but not at the same time
 3. once 1 & 2 is working, be able to review a product & rate out of /5. should show reviewers email or username
 4. be able to delete, not update a review

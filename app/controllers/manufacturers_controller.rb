@@ -16,8 +16,9 @@ class ManufacturersController < ApplicationController
     def create
         @manufacturer = Manufacturer.create(manufacturer_params)
         if @manufacturer.save
-            @manufacturer.update(user_ids: current_user.id)
-            redirect_to manufacturers_path(@manufacturer)
+            @manufacturer.id = current_user.id
+            # redirect_to manufacturers_path(@manufacturer)
+            redirect_to root_path
         else
             render :new
         end

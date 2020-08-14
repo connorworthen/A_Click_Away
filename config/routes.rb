@@ -12,14 +12,13 @@ Rails.application.routes.draw do
   resource :products
   resource :manufacturers
 
-
-  get 'products', action: :index, controller: 'index'
+  resources :manufacturers, only: [:show, :search, :new, :create] do 
+    resources :products, only: [:new, :create]
+  end
+  
+  # get 'products', action: :index, controller: 'index'
 
   # resources :users, only: [:new, :create, :show]
-
-  # resources :manufacturers, only: [:show, :search, :new, :create] do 
-  #   resources :products, only: [:new, :create]
-  # end 
 
   # resources :products, only: [:new, :create, :show, :edit, :update] do
   # #   resources :reviews, only: [:new, :create, :show, :edit, :update]

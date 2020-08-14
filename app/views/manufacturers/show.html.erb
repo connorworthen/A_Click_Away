@@ -2,11 +2,3 @@
 
 <li><%= link_to "Register Manufacturer", new_manufacturers_path %></li>
 <li><%= link_to "Update Manufacturer", edit_manufacturers_path %></li><br><br>
-
-<%= form_with(model: @manufacturer, local: true) do |f| %>
-
-<%= f.label "Manufacturers" %>
-<%= f.text_field :search %><br><br>
-
-<%= f.submit "Search" %>
-<% end %>
