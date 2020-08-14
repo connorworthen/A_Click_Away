@@ -21,7 +21,4 @@ terms and services?
 welcome message?
 displaying all users products?
 
-product/:id = show page
-products = index page
-product_path(@product) = show page
-products_path = index page
+user_products GET /users/:user_id/products(.:format) products#index
