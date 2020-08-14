@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :products
   resource :manufacturers
 
-  resources :manufacturers, only: [:show, :search, :new, :create] do 
+  resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
     resources :products, only: [:new, :create]
   end
 

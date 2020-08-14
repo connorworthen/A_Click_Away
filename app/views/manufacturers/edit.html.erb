@@ -13,5 +13,6 @@
 
 <%= f.submit "Update Manufacturer" %><br><br>
 
+<%= link_to 'delete', manufacturers_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %>
 
 <% end %>

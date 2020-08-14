@@ -38,10 +38,10 @@ class ManufacturersController < ApplicationController
         end 
     end
 
-    def delete
+    def destroy
         manufacturer_helper
         @manufacturer.destroy
-        redirect_to root_path
+        redirect_to manufacturers_path
     end
 
     private 
