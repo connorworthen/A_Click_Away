@@ -21,8 +21,13 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  get 'users/:id/products' => 'products#index', :as => :user_products_path
+  resources :users do
+    resources :manufacturers
+  end
 
+  get 'users/:id/products' => 'products#index', :as => :user_products_path
+  
+  get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturers_path
   # get 'products', action: :index, controller: 'index'
 
   # resources :users, only: [:new, :create, :show]

@@ -1,4 +1,23 @@
-<h1>Manufacturer Info</h1>
+<br><br>
+<h2><%= "Hello, #{current_user.email}, here is your Manufacturer" %></h2>
 
-<li><%= link_to "Register Manufacturer", new_manufacturers_path %></li>
-<li><%= link_to "Update or Delete Manufacturer", edit_manufacturers_path %></li><br><br>
+<table>
+  <tr>
+    <th>All Manufacturer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @manufacturer.each do |m| %>
+  <tr>
+    <td><%= link_to m.name, user_manufacturers_path(m) %></td>
+    <td><%= link_to 'Edit', edit_manufacturers_path %></td>
+    <td><%= link_to 'delete', manufacturers_path(@manufacturer), :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br />
+
+<td><%= link_to "Create a new manufacturer", new_manufacturers_path(@manufacturer) %></td>

@@ -1,11 +1,13 @@
 class ManufacturersController < ApplicationController
     
     def index
+        manufacturer_helper
         @manufacturers = Manufacturer.all
     end
     
     def show
         manufacturer_helper
+        @manufacturer = Manufacturer.all
         # @products = Product.alphabetize(@manufacturer.id)
     end
     
