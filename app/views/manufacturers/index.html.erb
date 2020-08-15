@@ -1,11 +1,13 @@
-<h1>Manufacturer Index</h1>
+<h1>Manufacturers Index</h1>
 
-<% @manufacturers.each do |m| %>
+<% @manufacturers.each do |manufacturer| %>
 
 <li>Name: <%= @manufacturer.name %></li><br><br>
 
 <li>Established: <%= @manufacturer.established %></li><br><br>
 
 <li>Bio: <%= @manufacturer.bio %></li><br><br>
+
+<%= link_to  "To go back, click here", manufacturers_path(@manufacturer) %>
 
 <% end %>
