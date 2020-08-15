@@ -1,15 +1,23 @@
-<h1>Products#Controller</h1>
+<br><br>
+<h2><%= "Hello, #{current_user.email}, all posted products are displayed below" %></h2>
 
-<%= @product.each do |p| %>
+<table>
+  <tr>
+    <th>All Products</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= @product.name %>
+  <% @product.each do |p| %>
+  <tr>
+    <td><%= link_to p.name, user_products_path(p) %></td>
+    <td><%= link_to 'Edit', edit_products_path %></td>
+    <td><%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
 
-<%= @product.price %>
+<br />
 
-<%= @product.stock %>
-
-<%= @product.description %>
-
-<%= @product.manufacturer %>
-
-<% end %>
+<td><%= link_to "Create a new product", new_products_path(@product) %></td>
