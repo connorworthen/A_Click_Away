@@ -14,7 +14,6 @@
     <%= "Logged in as #{current_user.email}" %>
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to  "Manufacturer Info", manufacturers_path(@manufacturer) %></li>
-    <li><%= link_to  "Product Info", products_path(@product) %></li>
     <li><%= link_to "Show User Products", user_products_path(:user_id) %></li>
     <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
     <% else %>

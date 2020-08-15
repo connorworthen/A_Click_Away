@@ -12,7 +12,7 @@
   <% @products.each do |p| %>
   <tr>
     <td><%= link_to p.name, products_path(p) %></td>
-    <td><%= link_to 'Edit', edit_products_path(@product) %></td>
+    <td><%= link_to 'Edit', edit_products_path %></td>
     <td><%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>

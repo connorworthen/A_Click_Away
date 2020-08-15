@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
     def show
         product_helper
+        @product = Product.all
     end
 
     def new
@@ -33,11 +34,16 @@ class ProductsController < ApplicationController
         product_helper
         @product.update(product_params)
         if @product.save
-            # redirect_to products_path(@product)
-            redirect_to root_path
+            redirect_to products_path(@product)
         else 
             render :edit 
         end 
+    end
+
+    def destroy
+        product_helper
+        @product.destroy
+        redirect_to products_path
     end
 
     private 
@@ -47,11 +53,7 @@ class ProductsController < ApplicationController
     end 
 
     def product_helper
-        @product = Product.find_by_id(params[:id])
-        #     @product = Product.find(params[:id])
-        # else
-        #     redirect_to products_path
-        # end
+        @product = Product.find_by(params[:id])
     end
 
 end

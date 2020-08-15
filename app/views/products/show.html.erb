@@ -1,11 +1,15 @@
-<h2>Product Show Page</h2>
+<h1>Products#Controller</h1>
 
-<td>Name: <%= @product.name %> </td><br><br>
+<%= @product.each do |p| %>
 
-<th>Price: <%= @product.price %> </th><br><br>
+<%= @product.name %>
 
-<th>Stock: <%= @product.stock %> </th><br><br>
+<%= @product.price %>
 
-<th>Description: <%= @product.description %> </th><br><br>
+<%= @product.stock %>
 
-<th>Manufacturer: <%= @product.manufacturer.name %> </th>
+<%= @product.description %>
+
+<%= @product.manufacturer %>
+
+<% end %>
