@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:new, :create, :show, :edit, :update] do 
-    resources :reviews, only: [:new, :create, :show, :edit, :update]
+    resources :reviews, only: [:new, :create, :show, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
