@@ -22,6 +22,8 @@
 
 <li>Comment: <%= @review.comment %></li><br>
 
+<%= "Review left by #{current_user.email}" %><br><br>
+
 <% end %>
 
 <%= link_to "Show all Products", products_path(@product) %>
