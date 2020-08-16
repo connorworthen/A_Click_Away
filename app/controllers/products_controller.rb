@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
     def index
         product_helper
+        @review = Review.find_by(params[:id])
+        @reviews = Review.all
         @products = Product.all
     end
 

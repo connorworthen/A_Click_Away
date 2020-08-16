@@ -10,8 +10,18 @@
 
 <li>Description: <%= @product.description %></li><br><br>
 
-<li>Manufacturer: <%= @product.manufacturer_id %></li><br><br>
-
-<%= link_to "Show User Products", products_path(@product) %>
+<li>Manufacturer: <%= @product.manufacturer_id %></li><br>
 
 <% end %>
+
+<h1>Product Review</h1>
+
+<% @reviews.each do |review| %>
+
+<li>Rating: <%= @review.rating %>/5.0</li><br><br>
+
+<li>Comment: <%= @review.comment %></li><br>
+
+<% end %>
+
+<%= link_to "Show all Products", products_path(@product) %>
