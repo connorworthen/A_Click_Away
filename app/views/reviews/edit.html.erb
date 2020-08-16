@@ -1,0 +1,15 @@
+<div id="formContent" <h4>Update Review for <%=@product.name %></h4>
+  <%= form_with(model: @review, url: [@product, @review], local: true) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %><br>
+  <%= f.submit "Update Review" %>
+</div>
+<% end %>
+
+<h4><%= button_to "Delete Review", delete_review_path(@review), data: { confirm: 'Are you sure?' } %></h4>
