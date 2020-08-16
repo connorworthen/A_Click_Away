@@ -9,22 +9,32 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if current_user %>
-    <%= "Logged in as #{current_user.email}" %>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to  "Manufacturer Info", manufacturers_path(@manufacturer) %></li>
-    <li><%= link_to "Show User Products", products_path(@product) %></li>
-    <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
-    <li><%= link_to  "Edit User Info", edit_users_path(@user) %></li>
-    <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
-    <% else %>
-    <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %> </div>
-    <% end %>
-
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <% if current_user %>
+        <%= "Logged in as #{current_user.email}" %>
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to  "Manufacturer Info", manufacturers_path(@manufacturer) %></li>
+            <li><%= link_to "Show User Products", products_path(@product) %></li>
+            <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
+            <li><%= link_to  "Edit User Info", edit_users_path(@user) %></li>
+            <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+            <% else %>
+            <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %> </div>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="container">
     <%= yield %>
-
+  </div>
   </body>
+
   <footer class="footer">
     <p><small> &copy; 2020 <strong>A Click Away</strong><%if logged_in? %> | <a href="/logout">Log Out</a><% end %></small></p>
   </footer>
