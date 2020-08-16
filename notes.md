@@ -1,6 +1,5 @@
 Priority List: 1-5 8/15 if more time figure out dilemna between members seeing users feed? amazon?
 
-1. be able to review a product & rate out of /5. should show reviewers email or username
 2. be able to delete, not update a review
 3. be able to update/delete user profile
 4. be able to create cart & checkout

@@ -22,6 +22,8 @@
 
 <li>Comment: <%= @review.comment %></li><br>
 
+<%= link_to 'delete', reviews_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@review}" %><br><br>
+
 <%= "Review left by #{current_user.email}" %><br><br>
 
 <% end %>
