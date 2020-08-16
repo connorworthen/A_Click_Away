@@ -3,16 +3,15 @@ class ReviewsController < ApplicationController
     before_action :edit_review, only: [:edit, :update]
 
     def new
-        params[:product_id] && @product = Product.find_by_id(params[:product_id])
-        @product.reviews.build
+        review_helper
+        @product = Product.find_by(params[:id])
+        @products = Product.all
         @review = Review.new
     end 
 
     def create 
-
-        params[:product_id] && @product = Product.find_by_id(params[:product_id])
+        review_helper
         @review = Review.create(review_params)
-
         if @review.save 
             redirect_to product_path(@review.product_id)
         else 
@@ -52,9 +51,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(
-            :product_id, :rating, :comment, :user_id 
-            )
+        params.require(:review).permit(:product_id, :rating, :comment, :user_id )
     end 
 
     def edit_review
@@ -63,6 +60,10 @@ class ReviewsController < ApplicationController
             redirect_to product_path(@review.product_id)
         end 
     end 
+
+    def review_helper
+        params[:product_id] && @product = Product.find_by_id(params[:product_id])
+    end
 
 
 end
