@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :manufacturer
   has_and_belongs_to_many :users
   has_many :reviews
-
+  
   accepts_nested_attributes_for :manufacturer, reject_if: proc {|attr| attr['name'].blank? }
   accepts_nested_attributes_for :reviews 
 
