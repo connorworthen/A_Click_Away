@@ -1,6 +1,6 @@
-Priority List: 1-5 8/15 if more time figure out dilemna between members seeing users feed? amazon?
+Priority List: 1-6
 
-1. root path should display products
+1. root path should search bar
 2. create search bar to find a product or manufacturer
 3. if 2 is quick then shopping cart?
 4. third party login
