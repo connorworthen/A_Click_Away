@@ -1,5 +1,9 @@
-<h3>Search Result</h3>
+<h1>Search Result:</h1>
 
 <% @products.each do |product| %>
-<%= product.name %><br>
+
+<h4>
+  <li><%= link_to product.name, user_products_path(product) %></li>
+</h4>
+
 <% end %>
