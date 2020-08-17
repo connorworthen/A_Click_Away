@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/products' => 'products#index', :as => :user_products_path
   get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturers_path
+  get '/search' => 'search#search', :as => :search_page
 
   resource :products
   resource :manufacturers

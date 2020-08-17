@@ -19,6 +19,7 @@
         <nav>
           <ul class="nav pull-right">
             <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to  "Search", search_page_path %>
             <li><%= link_to  "Manufacturer Info", manufacturers_path(@manufacturer) %></li>
             <li><%= link_to "Show User Products", products_path(@product) %></li>
             <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
@@ -42,3 +43,13 @@
   </footer>
 
   </html>
+
+  <%= form_tag(search_page_path, :method => "get",
+  class: 'navbar-form navbar-left') do %>
+  <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+    </div>
+  </div>
+  <% end %>
