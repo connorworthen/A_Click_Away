@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturers_path
   get '/search' => 'search#search', :as => :search_page
 
-  get '/auth/twitter/callback' => 'sessions#omniauth'
+  get '/auth/facebook/callback' => 'sessions#omniauth'
 
   resource :products
   resource :manufacturers
