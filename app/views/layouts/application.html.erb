@@ -4,8 +4,14 @@
   <head>
     <div class="center hero-unit">
       <h1>AClickAway</h1>
-      <% if current_user %>
-      <h2><%= "Welcome #{current_user.email}"  %></h2>
+      <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+        </div>
+      </div>
+      <% end %>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -18,8 +24,8 @@
       <div class="container">
         <nav>
           <ul class="nav pull-right">
+            <% if current_user %>
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to  "Search", search_page_path %>
             <li><%= link_to  "Manufacturer Info", manufacturers_path(@manufacturer) %></li>
             <li><%= link_to "Show User Products", products_path(@product) %></li>
             <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
@@ -39,17 +45,7 @@
   </body>
 
   <footer class="footer">
-    <p><small> &copy; 2020 <strong>A Click Away</strong></small></p>
+    <p><small><%= "Signed in as #{current_user.email}"  %> &copy; 2020 <strong>A Click Away</strong></small></p>
   </footer>
 
   </html>
-
-  <%= form_tag(search_page_path, :method => "get",
-  class: 'navbar-form navbar-left') do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-    <div class="input-group-btn">
-      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-    </div>
-  </div>
-  <% end %>
