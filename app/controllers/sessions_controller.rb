@@ -9,15 +9,11 @@ class SessionsController < ApplicationController
   end 
 
  def create
-    @user = User.find_or_create_by(uid: auth[:uid]) do |u|
-      u.name= auth[:info][:name]
-      u.email= auth[:info][:email]
-      u.image = auth[:info][:image]
-      u.password= SecureRandom.hex
-    end
-    
-    if @user.valid? # if the user is valid, create a session and redirect to that user.
+    @user = User.find_by(email: params[:email])
+    if @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else 
       redirect_to root_path
     end
   end
@@ -28,18 +24,19 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  # def omniauth
-  #   @user = User.find_or_create_by(uid: auth[:uid]) do |u| # we created a new migration adding a column to users for a uid:string
-  #   u.name= auth[:info][:name] # uid is a string since the hash provider by twitter encases the uid in a string.
-  #   u.email= auth[:info][:email]
-  #   u.password= SecureRandom.hex # password is secured by SecureRandom.hex
-  #   end
-
-  #   if @user.valid? # if the user is valid, create a session and redirect to that user.
-  #     session[:user_id] = @user.id
-  #     redirect_to root_path
-  #   end
-  # end
+  def omniauth
+    @user = User.find_or_create_by(uid: auth[:uid]) do |u|
+      u.name= auth[:info][:name]
+      u.email= auth[:info][:email]
+      u.image = auth[:info][:image]
+      u.password= SecureRandom.hex
+    end
+    
+    if @user.valid?
+      session[:user_id] = @user.id
+      redirect_to users_path(@user)
+    end
+  end
 
   private 
 

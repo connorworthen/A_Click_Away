@@ -28,6 +28,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'thin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
