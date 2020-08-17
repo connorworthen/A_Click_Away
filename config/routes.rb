@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'main#home'
 
   get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  post '/signup', to: 'users#create' 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'users/:id/products' => 'products#index', :as => :user_products_path
   get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturers_path
   get '/search' => 'search#search', :as => :search_page
+
+  get '/auth/twitter/callback' => 'sessions#omniauth'
 
   resource :products
   resource :manufacturers

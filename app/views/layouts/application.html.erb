@@ -32,7 +32,7 @@
             <li><%= link_to  "Edit User Info", edit_users_path(@user) %></li>
             <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
             <% else %>
-            <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %> </div>
+            <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', signup_path %> </div>
             <% end %>
           </ul>
         </nav>
@@ -45,7 +45,9 @@
   </body>
 
   <footer class="footer">
+    <% if current_user %>
     <p><small><%= "Signed in as #{current_user.email}"  %> &copy; 2020 <strong>A Click Away</strong></small></p>
+    <% end %>
   </footer>
 
   </html>
