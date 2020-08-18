@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   get '/search' => 'search#search', :as => :search_page
 
   get '/auth/facebook/callback' => 'sessions#omniauth'
+  get 'auth/failure', to: redirect('/')
   # get 'auth/facebook/callback', to: 'sessions#create'
-  # get 'auth/failure', to: redirect('/')
+  
 
   resource :products
   resource :manufacturers

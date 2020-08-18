@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
     before_action :require_log_in
-    before_action :edit_review, only: [:edit, :update]
 
     def new
         review_helper

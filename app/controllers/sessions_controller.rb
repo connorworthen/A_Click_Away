@@ -30,7 +30,6 @@ class SessionsController < ApplicationController
   #     redirect_to user_path(user.id)
   #   end
   # end
- 
     
   def destroy 
     session.delete :user_id 
