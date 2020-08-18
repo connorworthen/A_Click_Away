@@ -29,7 +29,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'thin'
-gem 'figaro'
+# gem 'figaro'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
