@@ -4,12 +4,7 @@ class ManufacturersController < ApplicationController
         manufacturer_helper
         @manufacturers = Manufacturer.all
     end
-    
-    def show
-        manufacturer_helper
-        @manufacturer = Manufacturer.all
-    end
-    
+      
     def new
         @manufacturer = Manufacturer.new
     end
