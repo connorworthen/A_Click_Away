@@ -26,7 +26,7 @@
           <ul class="nav pull-right">
             <% if current_user %>
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to  "Manufacturer Info", manufacturer_path(@manufacturer) %></li>
+            <li><%= link_to  "Manufacturer Info", manufacturers_path %></li>
             <li><%= link_to "Show User Products", products_path(@product) %></li>
             <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
             <li><%= link_to  "Edit User Info", edit_users_path(@user) %></li>

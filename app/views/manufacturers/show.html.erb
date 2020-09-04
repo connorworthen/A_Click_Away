@@ -8,7 +8,6 @@
 
   <% @manufacturer.each do |m| %>
   <tr>
-    <td><%= link_to m.name, user_manufacturer_path(m) %></td>
     <td><%= link_to 'Edit', edit_manufacturer_path %></td>
     <td><%= link_to 'delete', manufacturer_path(@manufacturer), :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %></td>
   </tr>

@@ -8,7 +8,6 @@ class ManufacturersController < ApplicationController
     def show
         manufacturer_helper
         @manufacturer = Manufacturer.all
-        # @products = Product.alphabetize(@manufacturer.id)
     end
     
     def new

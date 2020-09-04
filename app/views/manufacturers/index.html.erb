@@ -8,6 +8,18 @@
 
 <li>Bio: <%= @manufacturer.bio %></li><br><br>
 
-<%= link_to  "To go back, click here", manufacturers_path(@manufacturer) %>
-
+<tr>
+  <h4>
+    <td><%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %></td><br>
+  </h4>
+  <h4>
+    <td><%= link_to 'Delete', manufacturers_path(@manufacturer), :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %></td><br>
+  </h4>
+  <h4>
+    <td><%= link_to "Create a new manufacturer", new_manufacturer_path %></td>
+  </h4>
+</tr>
 <% end %>
+</table>
+
+<br />

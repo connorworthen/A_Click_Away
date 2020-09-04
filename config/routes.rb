@@ -9,18 +9,20 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   get 'users/:id/products' => 'products#index', :as => :user_products_path
-  get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturers_path
+  get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturer_path
   get '/search' => 'search#search', :as => :search_page
 
   get '/auth/facebook/callback' => 'sessions#omniauth'
   get 'auth/failure', to: redirect('/')
   # get 'auth/facebook/callback', to: 'sessions#create'
-  
+  get 'index', to: 'manufacturer#index'
 
   resource :products
-  resource :manufacturer
   resource :reviews
   resource :users
+
+  resources :manufacturers
+  get '/manufacturers/:id', to: 'manufacturers#show'
 
   resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
     resources :products, only: [:new, :create]
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :manufacturers
+    resources :manufacturer
   end
 
   resources :products, only: [:new, :create, :show, :edit, :update] do 
