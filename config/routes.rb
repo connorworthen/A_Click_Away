@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resource :users
 
   resources :manufacturers
-  get '/manufacturers/:id', to: 'manufacturers#show'
 
   resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
     resources :products, only: [:new, :create]
