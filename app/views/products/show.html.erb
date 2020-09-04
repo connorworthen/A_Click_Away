@@ -5,7 +5,7 @@
 
 <% @product.each do |p| %>
 <h4>
-  <td><%= link_to p.name, user_products_path(p) %></td>
+  <%= link_to p.name, user_products_path(p) %>
   |<%= link_to 'Edit', edit_products_path %>
   |<%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %>|
 </h4>

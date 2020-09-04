@@ -2,13 +2,13 @@
 
 <% @products.each do |product| %>
 
-<li>Name: <%= @product.name %></li><br><br>
+<li>Name: <%= @product.name %></li><br>
 
-<li>Price: <%= @product.price %></li><br><br>
+<li>Price: <%= @product.price %></li><br>
 
-<li>Stock: <%= @product.stock %></li><br><br>
+<li>Stock: <%= @product.stock %></li><br>
 
-<li>Description: <%= @product.description %></li><br><br>
+<li>Description: <%= @product.description %></li><br>
 
 <li>Manufacturer: <%= @product.manufacturer_id %></li><br>
 
@@ -18,14 +18,15 @@
 
 <% @reviews.each do |review| %>
 
-<li>Rating: <%= @review.rating %>/5.0</li><br><br>
+<li>Rating: <%= @review.rating %>/5.0</li><br>
 
 <li>Comment: <%= @review.comment %></li><br>
 
-<%= link_to 'delete', reviews_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@review}" %><br><br>
+<li><%= "Review left by #{current_user.email}" %></li><br>
 
-<%= "Review left by #{current_user.email}" %><br><br>
+<h4><%= link_to 'Delete Review', reviews_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@review}" %></h4><br>
 
-<% end %>
+<h1>To show all products and reviews<h1>
+    <h4><%= link_to "Show all Products", products_path(@product) %></h4>
 
-<%= link_to "Show all Products", products_path(@product) %>
+    <% end %>

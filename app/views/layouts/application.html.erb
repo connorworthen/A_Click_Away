@@ -28,7 +28,7 @@
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to  "Manufacturer Info", manufacturers_path %></li>
             <li><%= link_to "Show User Products", products_path %></li>
-            <li><%= link_to  "Review a Product", new_reviews_path(@review) %></li>
+            <li><%= link_to  "Review a Product", new_reviews_path %></li>
             <li><%= link_to  "Edit User Info", edit_users_path(@user) %></li>
             <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
             <% else %>
