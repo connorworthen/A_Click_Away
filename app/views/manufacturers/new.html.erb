@@ -5,10 +5,10 @@
 <%= f.label :name %>
 <%= f.text_field :name %><br><br>
 
-<%= f.label :established %>:
-<%= f.number_field :established, step: 2020 %><br><br>
+<%= f.label :established %>
+<%= f.number_field :established, {min: 1800, max: 2020} %><br><br>
 
-<%= f.label :bio %>:<br><br>
+<%= f.label :bio %>
 <%= f.text_area :bio, :cols => 50, :rows => 7 %><br><br>
 
 <%= f.submit "Create Manufacturer" %><br><br>
