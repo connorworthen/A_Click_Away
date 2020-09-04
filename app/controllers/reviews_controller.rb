@@ -1,6 +1,13 @@
 class ReviewsController < ApplicationController
-    before_action :require_log_in
+    before_action :correct_user, only: [:edit, :update, :destroy]
 
+    def correct_user
+        @manufacturer = Manufacturer.find_by(id: params[:id])
+        return unless current_user
+        flash[:alert] = "You are not allowed to access this part of the site"
+        redirect_to root_path
+    end
+    
     def new
         review_helper
         @product = Product.find_by(params[:id])

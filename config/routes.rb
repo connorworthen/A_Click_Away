@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resource :products
   resource :reviews
   resource :users
-
   resources :manufacturers
 
   resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
