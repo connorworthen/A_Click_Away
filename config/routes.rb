@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   
 
   resource :products
-  resource :manufacturers
+  resource :manufacturer
   resource :reviews
   resource :users
 
