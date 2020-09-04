@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'index', to: 'manufacturer#index'
 
   resource :products
+  
   resource :reviews
   resource :users
 
