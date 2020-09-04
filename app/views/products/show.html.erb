@@ -1,23 +1,12 @@
-<br><br>
-<h2><%= "Hello, #{current_user.email}, all posted products are displayed below" %></h2>
+<h1>Create New Product</h1>
+<h4><%= link_to "Create a new product", new_product_path %></h4>
 
-<table>
-  <tr>
-    <th>All Products</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>All Products</h1>
 
-  <% @product.each do |p| %>
-  <tr>
-    <td><%= link_to p.name, user_products_path(p) %></td>
-    <td><%= link_to 'Edit', edit_products_path %></td>
-    <td><%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% end %>
-</table>
-
-<br />
-
-<td><%= link_to "Create a new product", new_product_path %></td>
+<% @product.each do |p| %>
+<h4>
+  <td><%= link_to p.name, user_products_path(p) %></td>
+  |<%= link_to 'Edit', edit_products_path %>
+  |<%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %>|
+</h4>
+<% end %>

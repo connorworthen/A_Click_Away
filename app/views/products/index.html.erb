@@ -29,15 +29,3 @@
 <% end %>
 
 <%= link_to "Show all Products", products_path(@product) %>
-
-<tr>
-  <td><%= link_to p.name, user_products_path(p) %></td>
-  <td><%= link_to 'Edit', edit_products_path %></td>
-  <td><%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %></td>
-</tr>
-<% end %>
-</table>
-
-<br />
-
-<td><%= link_to "Create a new product", new_product_path %></td>
