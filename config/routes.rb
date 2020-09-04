@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create' 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
   get 'users/:id/products' => 'products#index', :as => :user_products_path
   get 'users/:id/manufacturers' => 'manufacturers#index', :as => :user_manufacturer_path
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'index', to: 'manufacturer#index'
 
   resource :products
-  
   resource :reviews
   resource :users
 
