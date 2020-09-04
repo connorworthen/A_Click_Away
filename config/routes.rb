@@ -14,8 +14,6 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#omniauth'
   get 'auth/failure', to: redirect('/')
-  # get 'auth/facebook/callback', to: 'sessions#create'
-  get 'index', to: 'manufacturer#index'
 
   resource :products
   resource :reviews
