@@ -1,4 +1,6 @@
-Priority List: 1-6
+1. create new facebook app id
+2. make sure third party auth is working + redo key & secret
 
-1. go through checklist
-2. dry code and make sure everything works
+https://stackoverflow.com/questions/42750685/http-parse-error-malformed-request-ruby-on-rails
+
+EDITOR="nano" rails credentials:edit

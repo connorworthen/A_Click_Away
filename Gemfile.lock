@@ -249,7 +249,6 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  omniauth
   omniauth-facebook
   pry
   puma (~> 4.1)
