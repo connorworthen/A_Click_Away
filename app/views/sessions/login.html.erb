@@ -21,7 +21,7 @@
     <h2>Facebook UID: <%= @user.uid %></h2>
     <img src="<%= @user.image %>">
     <% else %>
-    <h4>Login through Facebook? <%= link_to "Log in", '/auth/facebook' %></h4>
+    <h4>Login through Facebook <%= link_to "Log in", '/auth/facebook' %></h4>
     <% end %>
   </section>
 </div>
